@@ -6,26 +6,10 @@ This project aims to build an End-to-End Machine Learning solution for predictiv
 ## Objectives
 1. **Predict Machine Failure**: A binary classification model to predict whether a machine will fail.
 2. **Predict Failure Type**: A multi-class classification model to predict the specific type of failure (e.g., Tool Wear, Heat Dissipation, Power, Overstrain, or Random Failure).
-3. **Explainability**: Use SHAP (SHapley Additive exPlanations) to explain feature contributions for transparency.
-4. **Actionable Recommendations**: Provide maintenance recommendations based on the predicted failure type.
+3. **Actionable Recommendations**: Provide maintenance recommendations based on the predicted failure type via a real-time dashboard.
 
 ## Dataset
 The project uses the **AI4I 2020 Predictive Maintenance Dataset**. It contains 10,000 data points with features such as Air temperature, Process temperature, Rotational speed, Torque, and Tool wear.
-
-## Project Structure
-```
-Predictive_Maintenance_Project/
-│
-├── Predictive_Maintenance.ipynb    # Jupyter Notebook with full EDA, preprocessing, and modeling
-├── app.py                          # Streamlit application for the user interface
-├── requirements.txt                # Python dependencies
-├── README.md                       # Project documentation
-├── models/                         # Directory containing saved models and preprocessors
-│      ├── binary_model.pkl
-│      ├── failure_type_model.pkl
-│      ├── scaler.pkl
-│      └── encoder.pkl
-```
 
 ## Libraries
 - `numpy`
@@ -37,6 +21,7 @@ Predictive_Maintenance_Project/
 - `joblib`
 - `shap`
 - `streamlit`
+- `pytest`
 
 ## Installation
 1. Ensure you have Python 3.8+ installed.
@@ -44,7 +29,6 @@ Predictive_Maintenance_Project/
 3. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
-   ```
 
 ## How to Run Notebook
 1. Open a terminal or command prompt in the project directory.
@@ -62,7 +46,7 @@ Predictive_Maintenance_Project/
 2. A browser window will open automatically. Input the machine parameters to get predictions and maintenance recommendations.
 
 ## Results
-- The best binary classification model achieved high accuracy and ROC-AUC.
+- The binary classification model achieved high accuracy; however, due to class imbalance, failure detection performance needs further improvement.
 - The best failure type classification model effectively distinguishes between different failure modes.
 - Important features driving failures include mechanical power, tool wear, and temperature differences.
 
@@ -71,12 +55,3 @@ Predictive_Maintenance_Project/
 - Incorporate time-series or sequential data for real-time sensor streams.
 - Deploy the Streamlit application to a cloud platform like AWS, Heroku, or Streamlit Community Cloud.
 
-
-## How to Run Unit Tests
-To ensure the machine learning models and data pipelines are loading correctly, you can run the automated unit tests.
-1. Make sure you have installed the test dependencies from `requirements.txt`.
-2. Run the tests using `pytest`:
-   ```bash
-   pytest test_models.py -v
-   ```
-This will automatically verify that both the binary classification and failure type models can process incoming data and return the expected output structures.
