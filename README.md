@@ -45,6 +45,13 @@ The project uses the **AI4I 2020 Predictive Maintenance Dataset**. It contains 1
    ```
 2. A browser window will open automatically. Input the machine parameters to get predictions and maintenance recommendations.
 
+## Live Demo
+
+->The predictive maintenance dashboard is deployed and available online:
+
+### Streamlit Application: https://predictive-maintainance-msangeeth28.streamlit.app/
+
+
 ## Results
 - The binary classification model achieved high accuracy; however, due to class imbalance, failure detection performance needs further improvement.
 - The best failure type classification model effectively distinguishes between different failure modes.
